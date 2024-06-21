@@ -26,3 +26,10 @@ def add_fornecedor():
 
     db.session.add(new_fornecedor)
     db.session.commit
+
+    return FornecedorSchema().jsonify(new_fornecedor)
+
+
+@api.route('/produtos', methods =['POST'])
+def add_produto():
+    cod_produto = request.json['cod_produto']
